@@ -48,16 +48,16 @@
                     <li class="sidebar-title">
                         Apps
                     </li>
-                    <li>
-                        <a href="index.html" ><i class="material-icons-outlined">dashboard</i>Dashboard</a>
+                    <li class="{{ (request()->is('/')) ? 'active-page' : '' }}">
+                        <a href="{{ route('dashboard') }}" ><i class="material-icons-outlined">dashboard</i>Dashboard</a>
                     </li>
 
-                    <li class="active-page">
-                        <a href="" class="active"><i class="material-icons">apps</i>Proses Apriori<i class="material-icons-outlined"></i></a>
+                    <li class="{{ (request()->is('apriori')) ? 'active-page' : '' }}">
+                        <a href="{{ route('apriori') }}"><i class="material-icons">apps</i>Proses Apriori<i class="material-icons-outlined"></i></a>
                     </li>
 
-                    <li >
-                        <a href="mailbox.html " ><i class="material-icons-outlined">inbox</i>Data Transaction</a>
+                    <li class="{{ (request()->is('transaction')) ? 'active-page' : '' }}">
+                        <a href="{{ route('transaction') }}" ><i class="material-icons-outlined">inbox</i>Data Transaction</a>
                     </li>
 
                 </ul>

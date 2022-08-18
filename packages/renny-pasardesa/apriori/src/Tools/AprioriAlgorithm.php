@@ -230,13 +230,11 @@ class AprioriAlgorithm
 
         return $count;
     }
-
+ 
     public function process()
     {
-        // Untuk menghitung jumlah transaksi tiap produk & 1-itemset
         $this->readItemset();
 
-        // menghitung support dari itemset ke $k, dan membuat kombinasi itemset selanjutnya
         $k = 1;
         while (true) {
             [$count_filtered, $k_itemset_filtered, $item_filtered] = $this->support($k);
@@ -261,7 +259,6 @@ class AprioriAlgorithm
             $this->association_candidate = array_merge($this->association_candidate, $k_item_set['items']);
         }
 
-        // misal $this->association_candidate = [7,8,12]
         $this->association_candidate = array_unique($this->association_candidate);
         $this->associationRules();
 

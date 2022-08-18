@@ -9,7 +9,7 @@ use RennyPasardesa\Apriori\Tools\AprioriAlgorithm;
 use App\Models\Transaction;
 use App\Models\TransactionDetail;
 
- 
+  
 
 class AprioriController extends Controller
 {
@@ -24,7 +24,7 @@ class AprioriController extends Controller
         	$products = TransactionDetail::whereIn('product_id', $a->products)->get();
         	$a->products_name = $products->pluck('product_name', 'product_name')->join(', ');
         }
-
+        
         return view('apriori',['apriori'=>$apriori]);
     }
 
@@ -41,6 +41,6 @@ class AprioriController extends Controller
     	$aprioriAlgorithm = new AprioriAlgorithm($transactionArray);
     	$aprioriAlgorithm->process();
 
-    	return redirect('/apriori');
+    	return view('kitemset',['aprioriAlgorithm'=>$aprioriAlgorithm]);
     }
 }

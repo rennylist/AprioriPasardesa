@@ -50,9 +50,8 @@
 									<td>{{ $a->recommendation_name }}</td>
 									<td>{{ $a->confidence }}</td>
 									<td>{{ $a->lift }}</td>
-								
 								</tr>
-								@endforeach
+								@endforeach 
 							</tbody>
 						</table>       
 					</div>
